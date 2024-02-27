@@ -1,38 +1,67 @@
+:root {
+    --primary-light: rgba(238, 245, 255, 0.4);
+    --primary-dark: rgba(38,80, 115, 1);
+}
+
 .App {
-  text-align: center;
+    border: 6px solid var(--primary-dark);
+    border-radius: 10px;
+    padding: 10px;
+    background-color: var(--primary-light);
+    margin: 10px auto;
+}
+.App .container {
+    width: 80%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App li {
+    list-style: none;
+}
+.App ul {
+    padding-left: 0px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Footer {
+    text-align: center;
+    font-size: 14px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.degrees {
+    position: relative;
+    bottom: 18px;
+    text-decoration: none;
 }
 
-.App-link {
-  color: #61dafb;
+.degrees:hover {
+    text-decoration: underline;
+}
+.temperature {
+    font-size: 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@media (max-width: 900px) {
+    .Footer {
+        font-size: 10px;
+    }
+    .SearchResponsive {
+        margin-bottom: 10px;
+    }
+
+    input {
+        text-align: center;
+    }
+    .TextResponsive {
+        text-align: center;
+        padding: 0px;
+    }
+
+    .App ul {
+        padding-left: 0px;
+        margin-left: 0px;
+    }
+
+    .degrees {
+        position: relative;
+        bottom: 20px;
+    }
 }
