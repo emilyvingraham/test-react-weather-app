@@ -12,6 +12,7 @@ export default function Weather() {
         console.log(response.data);
         setLoaded(true);
         setCurrentWeather({
+            cityName: response.data.city,
             temperature: response.data.temperature.current,
             time: response.data.time,
             description: response.data.condition.description,
@@ -46,7 +47,7 @@ export default function Weather() {
                         <div className="row py-3 TextResponsive">
                             <div className="col-md-3">
                                 <h2 className="pb-0 mb-0">
-                                    <strong>Grand Junction</strong>
+                                    <strong>{currentWeather.cityName}</strong>
                                 </h2>
                                 <p className="mb-0">{currentWeather.time}</p>
                                 <p className="text-capitalize">
@@ -90,7 +91,8 @@ export default function Weather() {
                                         {currentWeather.humidity}%
                                     </li>
                                     <li>
-                                        <strong>Wind</strong> {Math.round(currentWeather.wind)}{" "}mph
+                                        <strong>Wind</strong>{' '}
+                                        {Math.round(currentWeather.wind)} mph
                                     </li>
                                 </ul>
                             </div>
