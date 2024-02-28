@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 // import ReactAnimatedWeather from 'react-animated-weather';
+import FormatDate from "./FormatDate.js"
 import { Puff } from 'react-loader-spinner';
 import './App.css';
 
@@ -15,7 +16,7 @@ export default function Weather(props) {
         setCurrentWeather({
             cityName: response.data.city,
             temperature: response.data.temperature.current,
-            time: response.data.time,
+            time: new Date(response.data.time * 1000),
             description: response.data.condition.description,
             country: response.data.country,
             feelsLike: response.data.temperature.feels_like,
@@ -51,7 +52,9 @@ export default function Weather(props) {
                                 <h2 className="pb-0 mb-0">
                                     <strong>{currentWeather.cityName}</strong>
                                 </h2>
-                                <p className="mb-0">{currentWeather.time}</p>
+                                <p className="mb-0">
+                                    <FormatDate time={currentWeather.time}/>
+                                </p>
                                 <p className="text-capitalize">
                                     {currentWeather.description}
                                 </p>
@@ -103,7 +106,7 @@ export default function Weather(props) {
         );
     } else {
         let apiKey = '47ce0ocdabaf4a2e81b031bb9t47a0e0';
-        
+
         let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=imperial`;
         axios.get(apiUrl).then(handleResponse);
 
