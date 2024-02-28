@@ -6,12 +6,20 @@ import './App.css';
 
 export default function Weather() {
     const [loaded, setLoaded] = useState(false);
-    const [temperature, setTemperature] = useState(null);
+    const [currentWeather, setCurrentWeather] = useState(null);
 
     function handleResponse(response) {
         console.log(response.data);
-        setTemperature(response.data.temperature.current);
         setLoaded(true);
+        setCurrentWeather({
+            temperature: response.data.temperature.current,
+            time: response.data.time,
+            description: response.data.condition.description,
+            country: response.data.country,
+            feelsLike: response.data.temperature.feels_like,
+            humidity: response.data.temperature.humidity,
+            wind: response.data.wind.speed,
+        });
     }
 
     if (loaded) {
@@ -40,12 +48,14 @@ export default function Weather() {
                                 <h2 className="pb-0 mb-0">
                                     <strong>Grand Junction</strong>
                                 </h2>
-                                <p className="mb-0">Tuesday 10:00</p>
-                                <p className="text-capitalize">Description</p>
+                                <p className="mb-0">{currentWeather.time}</p>
+                                <p className="text-capitalize">
+                                    {currentWeather.description}
+                                </p>
                             </div>
                             <div className="col-md-3 TemperatureResponsive">
                                 <span className="temperature">
-                                    {Math.round(temperature)}
+                                    {Math.round(currentWeather.temperature)}
                                 </span>
                                 <span className="degrees">
                                     <sup>°F | </sup>
@@ -67,16 +77,20 @@ export default function Weather() {
                             <div className="col-md-3 lh-2">
                                 <ul>
                                     <li>
-                                        <strong>United States</strong>
+                                        <strong>
+                                            {currentWeather.country}
+                                        </strong>
                                     </li>
                                     <li>
-                                        <strong>Feels Like: </strong>10°
+                                        <strong>Feels Like: </strong>
+                                        {Math.round(currentWeather.feelsLike)}°
                                     </li>
                                     <li>
-                                        <strong>Humidity</strong> %
+                                        <strong>Humidity</strong>{' '}
+                                        {currentWeather.humidity}%
                                     </li>
                                     <li>
-                                        <strong>Wind</strong> mp/h
+                                        <strong>Wind</strong> {Math.round(currentWeather.wind)}{" "}mph
                                     </li>
                                 </ul>
                             </div>
