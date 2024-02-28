@@ -14,7 +14,7 @@ export default function Footer() {
             </a>{' '}
             and is{' '}
             <a
-                href="https://github.com/emilyvingraham"
+                href="https://github.com/emilyvingraham/test-react-weather-app"
                 target="_blank"
                 rel="noreferrer"
             >
