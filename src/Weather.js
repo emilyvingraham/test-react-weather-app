@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 // import ReactAnimatedWeather from 'react-animated-weather';
-import FormatDate from "./FormatDate.js"
+import FormatDate from './FormatDate.js';
 import { Puff } from 'react-loader-spinner';
 import './App.css';
 
@@ -16,7 +16,7 @@ export default function Weather(props) {
         setCurrentWeather({
             cityName: response.data.city,
             temperature: response.data.temperature.current,
-            time: new Date(response.data.time * 1000),
+            date: new Date(response.data.time * 1000),
             description: response.data.condition.description,
             country: response.data.country,
             feelsLike: response.data.temperature.feels_like,
@@ -53,7 +53,7 @@ export default function Weather(props) {
                                     <strong>{currentWeather.cityName}</strong>
                                 </h2>
                                 <p className="mb-0">
-                                    <FormatDate time={currentWeather.time}/>
+                                    <FormatDate date={currentWeather.date} />
                                 </p>
                                 <p className="text-capitalize">
                                     {currentWeather.description}
