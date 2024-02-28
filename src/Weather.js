@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import ReactAnimatedWeather from 'react-animated-weather';
+// import ReactAnimatedWeather from 'react-animated-weather';
 import { Puff } from 'react-loader-spinner';
 import './App.css';
 
-export default function Weather() {
+export default function Weather(props) {
     const [loaded, setLoaded] = useState(false);
-    const [currentWeather, setCurrentWeather] = useState(null);
+    const [currentWeather, setCurrentWeather] = useState({});
 
     function handleResponse(response) {
+        let icon = response.data.condition.icon;
         console.log(response.data);
         setLoaded(true);
         setCurrentWeather({
@@ -20,6 +21,7 @@ export default function Weather() {
             feelsLike: response.data.temperature.feels_like,
             humidity: response.data.temperature.humidity,
             wind: response.data.wind.speed,
+            iconUrl: `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${icon}.png`,
         });
     }
 
@@ -67,11 +69,9 @@ export default function Weather() {
                             </div>
                             <div className="col-md-3">
                                 <span>
-                                    <ReactAnimatedWeather
-                                        icon="CLEAR_DAY"
-                                        color="black"
-                                        size={80}
-                                        animate={true}
+                                    <img
+                                        src={currentWeather.iconUrl}
+                                        alt={currentWeather.description}
                                     />
                                 </span>
                             </div>
@@ -103,8 +103,8 @@ export default function Weather() {
         );
     } else {
         let apiKey = '47ce0ocdabaf4a2e81b031bb9t47a0e0';
-        let city = 'Grand Junction';
-        let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
+        
+        let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=imperial`;
         axios.get(apiUrl).then(handleResponse);
 
         return (

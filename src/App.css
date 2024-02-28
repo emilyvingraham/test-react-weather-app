@@ -49,9 +49,11 @@
     top: 20px;
     left: 10px;
 }
-canvas {
+img {
     position: relative;
-    left: 20px;
+    bottom: 24px;
+    right: 50px;
+    width: 150px;
 }
 
 @media (max-width: 900px) {
@@ -85,7 +87,7 @@ canvas {
         top: 20px;
     }
 
-    canvas {
+    img {
         position: relative;
         left: 0px;
     }
