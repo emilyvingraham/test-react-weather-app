@@ -1,6 +1,6 @@
 :root {
     --primary-light: rgba(238, 245, 255, 0.4);
-    --primary-dark: rgba(38,80, 115, 1);
+    --primary-dark: rgba(38, 80, 115, 1);
 }
 
 .App {
@@ -28,15 +28,30 @@
 
 .degrees {
     position: relative;
-    bottom: 18px;
-    text-decoration: none;
+    bottom: 50px;
+    left: 6px;
+    font-weight: bolder;
 }
 
 .degrees:hover {
     text-decoration: underline;
 }
+
 .temperature {
     font-size: 50px;
+    position: relative;
+    bottom: 30px;
+    font-weight: bolder;
+}
+
+.TemperatureResponsive {
+    position: relative;
+    top: 20px;
+    left: 10px;
+}
+canvas {
+    position: relative;
+    left: 20px;
 }
 
 @media (max-width: 900px) {
@@ -62,6 +77,16 @@
 
     .degrees {
         position: relative;
-        bottom: 20px;
+        bottom: 50px;
+    }
+
+    .TemperatureResponsive {
+        position: relative;
+        top: 20px;
+    }
+
+    canvas {
+        position: relative;
+        left: 0px;
     }
 }
