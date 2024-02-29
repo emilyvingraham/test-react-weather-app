@@ -17,6 +17,8 @@
     font-size: 20px;
     color: var(--primary-dark);
     padding-top: 10px;
+    position: relative;
+    top: 10px;
 }
 
 .Forecast-icon {
@@ -26,17 +28,22 @@
 
 .Forecast-temperatures {
     position: relative;
-    bottom: 20px;
+    bottom: 30px;
     font-weight: 700;
 }
 
 .Forecast-temperatures-max {
     padding: 10px;
     color: var(--primary-dark);
-    
 }
 
 .Forecast-temperatures-min {
     padding-left: 6px;
     color: rgba(0, 0, 0, 0.4);
+}
+
+.Forecast-description {
+    position: relative;
+    bottom: 30px;
+    font-size: 14px;
 }
