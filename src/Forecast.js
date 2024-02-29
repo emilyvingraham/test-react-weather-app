@@ -18,7 +18,9 @@ export default function Forecast(props) {
             <div className="Forecast">
                 <div className="row">
                     <div className="col">
-                        <div className="Forecast-day">Fri</div>
+                        <div className="Forecast-day">
+                            {forecastData[0].time}
+                        </div>
                         <div className="Forecast-icon">
                             <img
                                 src={forecastData[0].condition.icon_url}
