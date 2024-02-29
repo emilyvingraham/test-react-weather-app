@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import FormatDate from './FormatDate.js';
 
 export default function Details(props) {
@@ -10,12 +10,12 @@ export default function Details(props) {
                         <h2 className="pb-0 mb-0">
                             <strong>{props.data.cityName}</strong>
                         </h2>
-                        <p className="mb-0">
+                        <div className="mb-0">
                             <FormatDate date={props.data.date} />
-                        </p>
-                        <p className="text-capitalize">
+                        </div>
+                        <div className="text-capitalize">
                             {props.data.description}
-                        </p>
+                        </div>
                     </div>
                     <div className="col-md-3 TemperatureResponsive">
                         <span className="temperature">
@@ -46,8 +46,7 @@ export default function Details(props) {
                                 {Math.round(props.data.feelsLike)}°
                             </li>
                             <li>
-                                <strong>Humidity</strong>{' '}
-                                {props.data.humidity}%
+                                <strong>Humidity</strong> {props.data.humidity}%
                             </li>
                             <li>
                                 <strong>Wind</strong>{' '}

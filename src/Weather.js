@@ -8,6 +8,7 @@ import './App.css';
 export default function Weather(props) {
     const [loaded, setLoaded] = useState(false);
     const [currentWeather, setCurrentWeather] = useState({});
+    const [city, setCity] = useState(props.defaultCity);
 
     function handleResponse(response) {
         let icon = response.data.condition.icon;
@@ -26,34 +27,46 @@ export default function Weather(props) {
         });
     }
 
+    function search() {
+        let apiKey = '47ce0ocdabaf4a2e81b031bb9t47a0e0';
+        let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
+        axios.get(apiUrl).then(handleResponse);
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        search();
+    }
+
+    function handleChange(event) {
+        setCity(event.target.value);
+    }
+
     if (loaded) {
         return (
-            <div>
-                <div className="container Weather">
-                    <form>
-                        <div className="row">
-                            <div className="col-md-8">
-                                <input
-                                    className="form-control SearchResponsive"
-                                    type="text"
-                                    placeholder="Enter a city"
-                                />
-                            </div>
-                            <div className="col-md-4">
-                                <button className="btn btn-primary w-100 SearchResponsive">
-                                    Search
-                                </button>
-                            </div>
+            <div className="container Weather">
+                <form onSubmit={handleSubmit}>
+                    <div className="row">
+                        <div className="col-md-8">
+                            <input
+                                className="form-control SearchResponsive"
+                                type="text"
+                                placeholder="Enter a city"
+                                onChange={handleChange}
+                            />
                         </div>
-                    </form>
-                    <Details data={currentWeather}/>
-                </div>
+                        <div className="col-md-4">
+                            <button className="btn btn-primary w-100 SearchResponsive">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <Details data={currentWeather} />
             </div>
         );
     } else {
-        let apiKey = '47ce0ocdabaf4a2e81b031bb9t47a0e0';
-        let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=imperial`;
-        axios.get(apiUrl).then(handleResponse);
+        search();
 
         return (
             <Puff
