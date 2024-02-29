@@ -1,5 +1,6 @@
 import React from 'react';
 import FormatDate from './FormatDate.js';
+import TemperatureUnit from "./TemperatureUnit.js";
 
 export default function Details(props) {
     return (
@@ -18,15 +19,7 @@ export default function Details(props) {
                         </div>
                     </div>
                     <div className="col-md-3 TemperatureResponsive">
-                        <span className="temperature">
-                            {Math.round(props.data.temperature)}
-                        </span>
-                        <span className="degrees">
-                            <sup>°F | </sup>
-                        </span>
-                        <span className="degrees">
-                            <sup>°C</sup>
-                        </span>
+                        <TemperatureUnit fahrenheit={props.data.temperature}/>
                     </div>
                     <div className="col-md-3">
                         <span>
