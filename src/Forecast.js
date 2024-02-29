@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Forecast.css';
+import FormatForecast from './FormatForecast.js';
 import axios from 'axios';
 
 export default function Forecast(props) {
@@ -18,34 +19,7 @@ export default function Forecast(props) {
             <div className="Forecast">
                 <div className="row">
                     <div className="col">
-                        <div className="Forecast-day">
-                            {forecastData[0].time}
-                        </div>
-                        <div className="Forecast-icon">
-                            <img
-                                src={forecastData[0].condition.icon_url}
-                                alt={forecastData[0].condition.description}
-                            />
-                        </div>
-                        <div className="Forecast-temperatures">
-                            <span className="Forecast-temperatures-max">
-                                {Math.round(
-                                    forecastData[0].temperature.maximum
-                                )}
-                                °
-                            </span>
-                            <span className="Forecast-temperatures-min">
-                                {Math.round(
-                                    forecastData[0].temperature.minimum
-                                )}
-                                °
-                            </span>
-                        </div>
-                        <div className="Forecast-description text-capitalize">
-                            <div>
-                                <i>{forecastData[0].condition.description}</i>
-                            </div>
-                        </div>
+                        <FormatForecast data={forecastData[0]} date={new Date(forecastData[0].time * 1000)}/>
                     </div>
                 </div>
             </div>
