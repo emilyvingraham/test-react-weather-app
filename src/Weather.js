@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-// import ReactAnimatedWeather from 'react-animated-weather';
+import Forecast from "./Forecast.js";
 import Details from './Details.js';
 import { Puff } from 'react-loader-spinner';
 import './App.css';
@@ -63,6 +63,7 @@ export default function Weather(props) {
                     </div>
                 </form>
                 <Details data={currentWeather} />
+                <Forecast/>
             </div>
         );
     } else {

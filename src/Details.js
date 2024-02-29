@@ -26,6 +26,7 @@ export default function Details(props) {
                             <img
                                 src={props.data.iconUrl}
                                 alt={props.data.description}
+                                className="DetailsImage"
                             />
                         </span>
                     </div>
