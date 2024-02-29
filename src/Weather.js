@@ -12,7 +12,6 @@ export default function Weather(props) {
 
     function handleResponse(response) {
         let icon = response.data.condition.icon;
-        console.log(response.data);
         setLoaded(true);
         setCurrentWeather({
             cityName: response.data.city,
@@ -63,7 +62,7 @@ export default function Weather(props) {
                     </div>
                 </form>
                 <Details data={currentWeather} />
-                <Forecast/>
+                <Forecast city={currentWeather.cityName}/>
             </div>
         );
     } else {
