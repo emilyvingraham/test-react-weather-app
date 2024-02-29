@@ -3,13 +3,13 @@ import React from 'react';
 export default function FormatForecast(props) {
     function dayOfWeek() {
         let days = [
-            'Sunday',
-            'Monday',
-            'Tuesday',
-            'Wednesday',
-            'Thursday',
-            'Friday',
-            'Saturday',
+            'Sun',
+            'Mon',
+            'Tues',
+            'Wed',
+            'Thurs',
+            'Fri',
+            'Sat',
         ];
         let day = days[props.date.getDay()];
 
