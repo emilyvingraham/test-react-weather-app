@@ -5,7 +5,6 @@ import axios from 'axios';
 export default function Forecast(props) {
     const [ready, setReady] = useState(false);
     const [forecastData, setForecastData] = useState(null);
-    
 
     function handleResponse(response) {
         setReady(true);
@@ -14,7 +13,7 @@ export default function Forecast(props) {
 
     if (ready) {
         console.log(forecastData);
-        
+
         return (
             <div className="Forecast">
                 <div className="row">
@@ -22,7 +21,7 @@ export default function Forecast(props) {
                         <div className="Forecast-day">Fri</div>
                         <div className="Forecast-icon">
                             <img
-                                src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+                                src={forecastData[0].condition.icon_url}
                                 alt={forecastData[0].condition.description}
                             />
                         </div>
