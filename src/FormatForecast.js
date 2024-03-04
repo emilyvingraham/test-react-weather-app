@@ -2,26 +2,18 @@ import React from 'react';
 
 export default function FormatForecast(props) {
     function dayOfWeek() {
-        let days = [
-            'Sun',
-            'Mon',
-            'Tues',
-            'Wed',
-            'Thurs',
-            'Fri',
-            'Sat',
-        ];
+        let days = ['Sun', 'Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat'];
         let day = days[props.date.getDay()];
 
         return `${day}`;
     }
 
-    function max() {
+    function maximum() {
         let temperature = Math.round(props.data.temperature.maximum);
         return `${temperature}°`;
     }
 
-    function min() {
+    function minimum() {
         let temperature = Math.round(props.data.temperature.minimum);
         return `${temperature}°`;
     }
@@ -36,8 +28,8 @@ export default function FormatForecast(props) {
                 />
             </div>
             <div className="Forecast-temperatures">
-                <span className="Forecast-temperatures-max">{max()}</span>
-                <span className="Forecast-temperatures-min">{min()}</span>
+                <span className="Forecast-temperatures-max">{maximum()}</span>
+                <span className="Forecast-temperatures-min">{minimum()}</span>
             </div>
             <div className="Forecast-description text-capitalize">
                 <div>

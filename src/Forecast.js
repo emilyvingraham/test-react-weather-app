@@ -8,13 +8,11 @@ export default function Forecast(props) {
     const [forecastData, setForecastData] = useState(null);
 
     function handleResponse(response) {
-        setReady(true);
         setForecastData(response.data.daily);
+        setReady(true);
     }
 
     if (ready) {
-        console.log(forecastData);
-
         return (
             <div className="Forecast">
                 <div className="row">
@@ -26,8 +24,9 @@ export default function Forecast(props) {
         );
     } else {
         let apiKey = '47ce0ocdabaf4a2e81b031bb9t47a0e0';
-        let city = props.city;
-        let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=imperial`;
+        let longitude = props.coordinates.longitude;
+        let latitude = props.coordinates.latitude;
+        let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=imperial`;
         axios.get(apiUrl).then(handleResponse);
 
         return null;
