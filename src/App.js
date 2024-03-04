@@ -6,10 +6,12 @@ import './App.css';
 
 export default function App() {
     return (
-        <div className="App container">
-            <Weather defaultCity="Miami" />
-            <hr />
-            <Footer />
+        <div className="Body container">
+            <div className="App container">
+                <Weather defaultCity="Miami" />
+                <hr />
+                <Footer />
+            </div>
         </div>
     );
 }

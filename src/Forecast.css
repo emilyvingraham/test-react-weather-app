@@ -1,14 +1,20 @@
 :root {
     --primary-light: rgba(238, 245, 255, 0.4);
     --primary-dark: rgba(38, 80, 115, 1);
+    --links: rgba(1, 121, 255, 0.8);
+    --forecast-hover: rgba(255, 255, 255, 0.6);
 }
 
 .Forecast {
     text-align: center;
 }
 
+.Forecast a {
+    color: var(--links);
+}
+
 .Forecast:hover {
-    background-color: white;
+    background-color: var(--forecast-hover);
     border-radius: 10px;
 }
 

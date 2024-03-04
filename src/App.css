@@ -1,17 +1,24 @@
 :root {
     --primary-light: rgba(238, 245, 255, 0.4);
     --primary-dark: rgba(38, 80, 115, 1);
+    --primary-app: rgba(0, 129, 112, 0.2);
+    --search-hover: rgba(0, 129, 112, 1);
+    --links: rgba(1, 121, 255, 0.8);
+}
+.Body .container {
+    width: 70%;
 }
 
 .App {
     border: 6px solid var(--primary-dark);
     border-radius: 10px;
     padding: 10px;
-    background-color: var(--primary-light);
+    background-color: var(--primary-app);
     margin: 10px auto;
 }
+
 .App .container {
-    width: 80%;
+    width: 90%;
 }
 
 .App li {
@@ -21,9 +28,21 @@
     padding-left: 0px;
 }
 
+.btn-primary {
+    --bs-btn-bg: var(--primary-dark) !important;
+    --bs-btn-border-color: var(--primary-dark) !important;
+    --bs-btn-hover-bg: var(--search-hover) !important;
+    --bs-btn-hover-border-color: var(--search-hover) !important;
+}
+
 .Footer {
     text-align: center;
     font-size: 14px;
+}
+
+.Footer a {
+    color: var(--links);
+    font-weight: 700;
 }
 
 .degrees {
@@ -57,6 +76,9 @@
 }
 
 @media (max-width: 900px) {
+    .Body .container {
+        width: 80%;
+    }
     .Footer {
         font-size: 10px;
     }
