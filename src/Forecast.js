@@ -16,9 +16,20 @@ export default function Forecast(props) {
         return (
             <div className="Forecast">
                 <div className="row">
-                    <div className="col">
-                        <FormatForecast data={forecastData[0]} date={new Date(forecastData[0].time * 1000)}/>
-                    </div>
+                    {forecastData.map(function (daily, index) {
+                        if (index < 5) {
+                            return (
+                                <div className="col" key={index}>
+                                    <FormatForecast
+                                        data={daily}
+                                        date={new Date(daily.time * 1000)}
+                                    />
+                                </div>
+                            );
+                        } else {
+                            return null;
+                        }
+                    })}
                 </div>
             </div>
         );
