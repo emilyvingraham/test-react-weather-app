@@ -10,17 +10,25 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
             >
-                Emily Ingraham
+                Emily Ingraham,
             </a>{' '}
-            and is{' '}
+            is{' '}
             <a
                 href="https://github.com/emilyvingraham/test-react-weather-app"
                 target="_blank"
                 rel="noreferrer"
             >
-                open-sourced on Github
+                open-sourced on Github,
+            </a>{' '}
+            and{' '}
+            <a
+                href="https://international-react-weather-app-evi.netlify.app/"
+                target="_blank"
+                rel="noreferrer"
+            >
+                hosted on Netlify.
             </a>
-            .<p>👽</p>
+            <p>👽</p>
         </div>
     );
 }
