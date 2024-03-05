@@ -46,10 +46,10 @@ export default function Details(props) {
                                 {Math.round(props.data.feelsLike)}°
                             </li>
                             <li>
-                                <strong>Humidity</strong> {props.data.humidity}%
+                                <strong>Humidity:</strong> {props.data.humidity}%
                             </li>
                             <li>
-                                <strong>Wind</strong>{' '}
+                                <strong>Wind:</strong>{' '}
                                 {Math.round(props.data.wind)} mph
                             </li>
                         </ul>
