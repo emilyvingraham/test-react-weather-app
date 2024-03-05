@@ -3,7 +3,6 @@
     --primary-dark: rgba(38, 80, 115, 1);
     --primary-app: rgba(0, 129, 112, 0.2);
     --search-hover: rgba(0, 129, 112, 1);
-    --links: rgba(1, 121, 255, 0.8);
 }
 .Body .container {
     width: 70%;
@@ -41,19 +40,15 @@
 }
 
 .Footer a {
-    color: var(--links);
+    color: var(--primary-dark);
     font-weight: 700;
 }
 
 .degrees {
     position: relative;
-    bottom: 50px;
+    bottom: 48px;
     left: 6px;
     font-weight: bolder;
-}
-
-.degrees a {
-    text-decoration: none;
 }
 
 .temperature {
